@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PBR Portfolio | 材质作品集</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+</head>
+<body>
+
+<div class="loader" id="loader" role="status" aria-label="加载中">
+  <canvas class="loader-canvas" id="loaderCanvas"></canvas>
+  <span class="loader-text">LOADING</span>
+</div>
+
+<header class="nav" role="banner">
+  <a href="#hero" class="nav-logo" aria-label="返回首页">PBR<span class="nav-logo-dot">.</span></a>
+  <nav class="nav-links" role="navigation" aria-label="主导航">
+    <a href="#works" class="nav-link">作品</a>
+    <a href="#about" class="nav-link">关于</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="切换亮色/暗色模式">
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+  </nav>
+</header>
+
+<section class="hero" id="hero" aria-label="首页英雄区">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="hero-overlay">
+    <p class="hero-eyebrow">Next-Gen 3D Modeling</p>
+    <h1 class="hero-title">次世代游戏<br><span class="hero-title-outline">建模作品</span></h1>
+    <p class="hero-desc">PBR 流程 · 材质与光影</p>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section class="works-section" id="works" aria-label="作品展示">
+  <h2 class="section-title">精选作品</h2>
+  <div class="works-list" id="worksList" role="list"></div>
+</section>
+
+<section class="about-section" id="about" aria-label="关于">
+  <div class="about-inner">
+    <p class="about-text">专注于 PBR 流程的高品质 3D 模型创作。涵盖写实与风格化方向，追求材质表现与光影的极致真实感。</p>
+    <div class="about-stats">
+      <div class="stat"><span class="stat-num">7</span><span class="stat-label">项目</span></div>
+      <div class="stat"><span class="stat-num">47</span><span class="stat-label">渲染图</span></div>
+      <div class="stat"><span class="stat-num">4K</span><span class="stat-label">纹理</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><span>© 2026 PBR Portfolio</span></footer>
+
+<!-- 全屏图片查看器 -->
+<div class="fs-viewer" id="fsViewer" aria-hidden="true">
+  <div class="fs-bg"></div>
+  <button class="fs-close" id="fsClose" aria-label="关闭">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <button class="fs-prev" id="fsPrev" aria-label="上一张">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="fs-next" id="fsNext" aria-label="下一张">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <!-- 左上信息 -->
+  <div class="fs-info">
+    <span id="fsTitle"></span>
+    <span id="fsDate"></span>
+  </div>
+  <div class="fs-image-wrap" id="fsImageWrap">
+    <img src="" alt="" id="fsImage" draggable="false">
+  </div>
+  <!-- 缩放滑块 -->
+  <div class="fs-zoom">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+    <input type="range" id="fsZoomSlider" min="1" max="5" step="0.1" value="1" aria-label="缩放滑块">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6"/></svg>
+    <span id="fsZoomLabel">100%</span>
+  </div>
+  <!-- 底部缩略图条 -->
+  <div class="fs-thumbs" id="fsThumbs"></div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
